@@ -2,6 +2,7 @@
 
 #include "mbed.h"
 #include "arm_book_lib.h"
+
 #include "user_interface.h"
 #include "smart_home_system.h"
 #include "display.h"
@@ -43,6 +44,7 @@ void userInterfaceInit()
 {
     incorrectCodeLed = OFF;
     systemBlockedLed = OFF;
+    //matrixKeypadInit( SYSTEM_TIME_INCREMENT_MS );
     userInterfaceDisplayInit();
 }
 
@@ -89,7 +91,7 @@ void userInterfaceCodeCompleteWrite( bool state )
 #define TEST_1 (1)
 #define TEST_2 (2)
 
-#define TEST_X (TEST_2)
+#define TEST_X (TEST_0)
 
 
 static void userInterfaceDisplayInit()
@@ -116,7 +118,6 @@ static void userInterfaceDisplayInit()
 
 }
 
-
 static void userInterfaceDisplayUpdate()
 {
     float contador = 0;
@@ -134,8 +135,14 @@ static void userInterfaceDisplayUpdate()
         displayCharPositionWrite ( 14,0 );
         displayStringWrite( "'C" );
 
+        displayCharPositionWrite ( 4,1 );
+
+        displayCharPositionWrite ( 6,2 );
+        
+
     } else {
-        accumulatedDisplayTime = accumulatedDisplayTime + SYSTEM_TIME_INCREMENT_MS;        
+        accumulatedDisplayTime =
+            accumulatedDisplayTime + SYSTEM_TIME_INCREMENT_MS;        
     } 
 }
 

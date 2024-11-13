@@ -1,7 +1,9 @@
 //=====[Libraries]=============================================================
 
 #include "arm_book_lib.h"
+
 #include "smart_home_system.h"
+
 #include "user_interface.h"
 
 
@@ -24,13 +26,11 @@
 void smartHomeSystemInit()
 {
     userInterfaceInit();
-
 }
 
 void smartHomeSystemUpdate()
 {
     userInterfaceUpdate();
-
     delay(SYSTEM_TIME_INCREMENT_MS);
 }
 
